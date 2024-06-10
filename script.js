@@ -39,17 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const scrollToFooterLink = document.getElementById('scroll-to-footer');
-    const footer = document.getElementById('footer');
-  
-    scrollToFooterLink.addEventListener('click', function(event) {
-      event.preventDefault();
-      footer.scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-
-
 
   document.addEventListener('DOMContentLoaded', function() {
     const cardImages = document.querySelectorAll('.card-img');
@@ -96,6 +85,19 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const customCursor = document.querySelector('.custom-cursor');
+
+    document.addEventListener('mousemove', function(e) {
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+
+        customCursor.style.left = `${mouseX}px`;
+        customCursor.style.top = `${mouseY}px`;
+
+    });
+});
 
 
 

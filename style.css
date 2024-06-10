@@ -2,7 +2,7 @@
 :root {
 
   /* -- Colors -- */
-  --clr-accent-1: hsl(49, 94%, 72%);
+  --clr-accent-1: hsl(50, 100%, 50%);
   --clr-accent-2: hsl(27, 90%, 66%);
   --clr-accent-3: hsl(1, 89%, 79%);
   --clr-accent-4: hsl(84, 49%, 53%);
@@ -30,11 +30,12 @@
   --ff-secondary: "DM Serif Display", serif;;
 
   --ff-body: var(--ff-primary);
-  --ff-accent: var(--ff-primary);
+  --ff-accent: var(--ff-secondary);
 
   --fw-regular: 400;
   --fw-bold: 700;
 
+  --fs-300: .875rem;
   --fs-400: 1rem;
   --fs-500: 1.25rem;
   --fs-600: 1.5rem;
@@ -62,10 +63,23 @@
 
 @media (max-width: 50em) {
   :root {
-    --fs-900: 3rem;
+    --fs-300: .5rem;
+    --fs-400: 1rem;
+    --fs-500: 1rem;
+    --fs-600: 1rem;
+    --fs-700: 1.5rem;
     --fs-800: 2.25rem;
+    --fs-900: 3rem;
+
+
 
     --fs-headers: var(--fs-600);
+
+    --m-xs: .5rem;
+    --m-s: 2rem;
+    --m-m: 3rem;
+    --m-l: 6rem;
+    --m-xl: 12rem;
 
     --p-l: 1rem;
     --p-xl: 8rem;
@@ -95,13 +109,15 @@
   4. Improve text rendering
 */
 body {
-  line-height: 1.5;
+  line-height: 1.2;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeSpeed;
 
   font-family:var(--ff-body);
   background-color: var(--clr-primary-900);
   color:var(--clr-primary-400);
+
+  cursor: none;
 }
 /*
   5. Improve media defaults
@@ -141,6 +157,7 @@ html:focus-within {
 
 html, body{
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 
@@ -172,6 +189,7 @@ header {
 }
 
 
+
 .flex-container {
   display: flex; 
   align-content:flex-start; 
@@ -184,11 +202,9 @@ header {
 .card-info {
   position: sticky;
   position: -webkit-sticky;
-}
-
-.card-info {
   top: 25vh;
 }
+
 
 
 /* Links & Buttons */
@@ -202,7 +218,7 @@ a {
 .link::after {
   content: '';
   display: block;
-  width: 100%;
+  width: min-width;
   height: 2px;
   background:var(--clr-accent-1);
   transform-origin: right;
@@ -228,7 +244,6 @@ a {
   overflow: hidden;
 
   border:none;
-  border-radius: 5px;
 
   font-weight: var(--fw-bold);
   color:var(--clr-primary-900);
@@ -238,10 +253,13 @@ a {
 
   cursor:pointer;
 
-    
   transition: all 0.4s ease;
+
   &:hover{
+
     background-color:white;
+    color:var(--clr-primary-900);
+
   }
 }
 
@@ -261,8 +279,12 @@ a {
 
   line-height: 1.5rem;
 
-  background-color: var(--clr-accent-1);
   cursor: pointer;
+
+  background-color: transparent;
+
+  border: 1px solid var(--clr-accent-1);
+  color: var(--clr-primary-100);
   
   transition: all 0.4s ease;
 }
@@ -281,7 +303,43 @@ a {
   padding: 10px 13px;
   width: 44px;
   gap: var(--m-s);
+
+  background-color: var(--clr-accent-1);
+
+  color: var(--clr-primary-900);
 }
+
+.btn-hero{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  height:auto;
+  min-width:300px;
+  max-width: 350px;
+  
+  gap: var(--m-xs);
+
+  padding: 10px 20px;
+
+  line-height: 1.5rem;
+
+  cursor: pointer;
+
+  background-color: var(--clr-accent-1);
+  
+  transition: all 0.4s ease;
+
+  &:hover{
+
+    background-color:white;
+    color:var(--clr-primary-900);
+
+  }
+
+}
+
 
 
 
@@ -386,8 +444,6 @@ a {
 }
 
 .hero {
-  padding-bottom: var(--m-m);
-
   color:var(--clr-primary-100);
   font-size: var(--fs-hero);
   line-height: 1;
@@ -412,6 +468,11 @@ a {
   flex-direction: column;
 
   min-width: 280px;
+  z-index:10;
+}
+
+.card-info p{
+  max-width:350px;
 }
 
 .kicker {
@@ -450,7 +511,7 @@ a {
 .card-img-wrapper {
   display: flex;
   flex-direction: column;
-  flex: 2 0 0px;
+  flex: 1 0 0px;
   gap: var(--m-s);
 
   width: 100%;
@@ -467,17 +528,26 @@ a {
   min-width: 280px;
 }
 
+.card-img-col {
+  display: flex;
+  flex-flow: column wrap;
+  gap: var(--m-s);
+
+  width: 100%;
+  min-width: 280px;
+}
+
 .card-img {
   display: flex;
   flex: 1 1 0px;
-  border-radius: 20px;
-
-  height: auto;
-  width: auto;
-
+  height:100%;
   transform: translateY(80px);
   transition: all 0.8s ease-in-out;
+}
 
+.card-img img {
+
+  align-self: center;
 }
 
 
@@ -540,11 +610,23 @@ a {
 
 
 
-/* ---- Background elements ---- */
+/* ---- Background & Decorative elements ---- */
 
-.card-1 {position: relative; overflow: visible; background-repeat: no-repeat; background-size: 90% 100%; background-position: center ;background-image: url('images/Card1BG.svg')!important; }
-.card-2 {position: relative; overflow:visible; background-repeat: no-repeat; background-size: 100% 100%; background-position: center; background-image: url('images/Card2BG.svg')!important; }
-.card-3 {position: relative; overflow: visible; background-repeat: no-repeat; background-size: 100% 100%; background-position: center; background-image: url('images/Card3BG.svg')!important; }
+.custom-cursor {
+  width:20px;
+  height: 20px;
+  background-color: var(--clr-accent-1);
+  position:fixed;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+}
+
+
+.card-1 {position: relative; overflow: visible; background-repeat: no-repeat; background-size: 90% 100%; background-position: center; background-image: url('images/Card1BG.svg')!important; }
+.card-2 {position: relative; overflow: visible; background-repeat: no-repeat; background-size: 90% 100%; background-position: center; background-image: url('images/Card2BG.svg')!important; }
+.card-3 {position: relative; overflow: visible; background-repeat: no-repeat; background-size: 90% 100%; background-position: center; background-image: url('images/Card3BG.svg')!important; }
 
 .line{
   position: relative;
@@ -561,21 +643,18 @@ a {
   top:0;
 
   animation-name: appear;
-  animation-duration: 2s;
-  animation-delay:1s;
+  animation-duration: 3s;
+  animation-delay:500ms;
   animation-fill-mode:forwards;
+
+  &.left{ left: calc(50% - 560px);}
+  &.right {right: calc(50% - 560px);}
 }
+
 
 @keyframes appear {
   0%  {opacity:0;}
   100% {opacity:.8}
-}
-
-.line-h{
-  height: 1px;
-  width: 100vw;
-  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, var(--clr-accent-1) 50%, rgba(0,0,0,0) 100%);
-  opacity: .8;
 }
 
 
@@ -600,6 +679,7 @@ a {
 .ff-accent {font-family: var(--ff-accent); }
 .ff-primary {font-family: var(--ff-body); }
 
+.fs-300 {font-size: var(--fs-300);}
 .fs-400 {font-size:var(--fs-400) }
 .fs-500 {font-size:var(--fs-500) }
 .fs-600 {font-size:var(--fs-600) }
@@ -643,3 +723,5 @@ a {
 .of-visible{overflow: visible;}
 
 .delay-1{transition-delay:1s;}
+
+.w-min {width: min-content}
