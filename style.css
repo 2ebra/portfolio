@@ -64,7 +64,7 @@
     --sp-s: 1.5rem;
     --sp-m: 3rem;
     --sp-l: 6rem;
-    --sp-xl: 12rem;
+    --sp-xl: 8rem;
   }
 }
 
@@ -187,6 +187,12 @@ header {
   top: 25vh;
 }
 
+@media (max-width: 50em){
+  .card-info {
+    top: 10vh;
+  }
+}
+
 .sticky {
   position: sticky;
   position: -webkit-sticky;
@@ -304,8 +310,7 @@ a {
   overflow: hidden;
 
   height:auto;
-  min-width:330px;
-  max-width: 350px;
+  min-width:270px;
   
   gap: var(--sp-xs);
 
@@ -325,7 +330,6 @@ a {
     color:var(--clr-primary-900);
 
   }
-
 }
 
 
@@ -620,16 +624,25 @@ a {
   transform: translate(-50%, -50%);
 }
 
-.g-container{ position: absolute; width: 100%; overflow-x:hidden; background: linear-gradient(to bottom, transparent, var(--clr-primary-900) 90%); z-index: -10; }
+.g-container{ 
+  position: absolute; 
+  width: 100%; 
+  height: min-content;
+  overflow-x:hidden; 
+  background: linear-gradient(to bottom, transparent, var(--clr-primary-900) 90%);
+  z-index: -10; }
 
 .herobg {
   position: relative;  
   top:0px; 
   right:-10%;
 
-  min-width: 500px;
+  min-width: 450px;
+}
 
-};
+@media (max-width: 50em) {
+  .g-container{top: 35px}
+}
 
 /* .colorg{  position: absolute; background-size: contain; background-repeat: no-repeat; background-position: center;}
 .yellowG{ right: -5%; top:10%; mix-blend-mode: lighten; width: var(--circle-size-s); height: var(--circle-size-s);  background-image:  url(images/YellowG_BG.svg);}
@@ -661,6 +674,14 @@ a {
   &.left{ left: calc(50% - 560px);}
   &.right {right: calc(50% - 560px);}
 }
+
+@media (max-width: 84em){
+  .line-v {
+    &.left{ left: calc(50% - calc(100vw * .8) / 2 - 20px );}
+    &.right {right: calc(50% - calc(100vw * .8) / 2 - 20px );}
+  }
+}
+
 
 
 @keyframes appear {
