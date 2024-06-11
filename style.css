@@ -2,11 +2,11 @@
 :root {
 
   /* -- Colors -- */
-  --clr-accent-1: 50, 100%, 50%; /* yellow */
-  --clr-accent-2: 204, 62%, 60%; /* blue */
-  --clr-accent-3: 24, 100%, 32%; /* orange */
-  --clr-accent-4: 147, 61%, 47%; /* green */
-  --clr-accent-5: 256, 30%, 38%; /* purple */
+  --clr-accent-1: 50, 100%, 50%; /* hsl yellow */
+  --clr-accent-2: 202, 98%, 67%; /* hsl blue */
+  --clr-accent-3: 16, 100%, 50%; /* hsl orange */
+  --clr-accent-4: 137, 71%, 58%; /* hsl green */
+  --clr-accent-5: 248, 100%, 74%; /* hsl purple */
 
   --clr-primary-900: hsl(0, 0%, 1%);
   --clr-primary-800: hsl(0, 0%, 8%);
@@ -38,7 +38,7 @@
   --sp-s: 2.5rem;
   --sp-m: 5rem;
   --sp-l: 12rem;
-  --sp-xl: 18rem;
+  --sp-xl: 16rem;
 
   --circle-size-l: max(calc(100vw * .55), calc(100vh * .55));
   --circle-size-s: max(calc(100vw * .4), calc(100vh * .4));
@@ -56,7 +56,7 @@
 
     --sp-xs: .5rem;
     --sp-s: 1.5rem;
-    --sp-m: 3rem;
+    --sp-m: 2.5rem;
     --sp-l: 6rem;
     --sp-xl: 8rem;
   }
@@ -620,6 +620,14 @@ a {
   transform: translate(-50%, -50%);
 }
 
+.custom-cursor-hover {
+  transform: rotate(360deg);
+  transition-duration: 1s;
+  transition-delay: now;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
 .g-container{ 
   position: absolute; 
   width: 100%; 
@@ -815,6 +823,10 @@ a {
 .text-primary-400 {color: var(--clr-primary-400) }
 .text-primary-900 {color: var(--clr-primary-900) }
 .text-accent-1 {color: hsl(var(--clr-accent-1)) }
+.text-accent-2 {color: hsl(var(--clr-accent-2)) }
+.text-accent-3 {color: hsl(var(--clr-accent-3)) }
+.text-accent-4 {color: hsl(var(--clr-accent-4)) }
+.text-accent-5 {color: hsl(var(--clr-accent-5)) }
 
 .bg-primary-100 {background-color: var(--clr-primary-100) }
 .bg-primary-400 {background-color: var(--clr-primary-400) }
