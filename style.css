@@ -178,7 +178,7 @@ header {
 .card-info {
   position: sticky;
   position: -webkit-sticky;
-  top: 25vh;
+  top: 15vh;
 }
 
 @media (max-width: 50em){

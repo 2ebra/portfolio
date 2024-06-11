@@ -86,9 +86,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function() {
     const customCursor = document.querySelector('.custom-cursor');
 
+    // Function to show the custom cursor
+    function showCursor() {
+        customCursor.style.display = 'block';
+    }
+
+    // Function to hide the custom cursor
+    function hideCursor() {
+        customCursor.style.display = 'none';
+    }
+
+    // Add mousemove event listener to update cursor position
     document.addEventListener('mousemove', function(e) {
         const mouseX = e.clientX;
         const mouseY = e.clientY;
@@ -96,5 +107,21 @@ document.addEventListener('DOMContentLoaded', function() {
         customCursor.style.left = `${mouseX}px`;
         customCursor.style.top = `${mouseY}px`;
 
+        showCursor();
     });
+
+    // Add touchstart event listener to hide the cursor on touch devices
+    document.addEventListener('touchstart', function() {
+        hideCursor();
+    });
+
+    // Optionally, add touchmove event listener to also hide the cursor
+    document.addEventListener('touchmove', function() {
+        hideCursor();
+    });
+
+    // Initially hide the custom cursor if a touch device is detected
+    if ('ontouchstart' in window || navigator.maxTouchPoints) {
+        hideCursor();
+    }
 });
