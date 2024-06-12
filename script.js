@@ -2,20 +2,32 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     const heroSection = document.querySelector('.hero');
+    const footerSection = document.querySelector('.footer');
     const navButton = document.querySelector('.btn-nav');
+    const vLine = document.querySelector('.line-v');
 
     function handleScroll() {
         const heroBottom = heroSection.getBoundingClientRect().bottom;
+        const footerTop = footerSection.getBoundingClientRect().top;
 
         if (window.innerWidth >= 1080) {
-            if (heroBottom < 0) {
+            if (heroBottom < -85) {
                 navButton.classList.add('shrink');
             } else {
                 navButton.classList.remove('shrink');
             }
+            if (heroBottom > -85 || footerTop < 800) {
+                vLine.classList.remove('line-appear');
+            }
+            else{ 
+                vLine.classList.add('line-appear');
+            }
         } else {
-            navButton.classList.add('shrink');
+            navButton.classList.add('shrink');      
         }
+
+
+        
     }
 
     // Check screen width initially and on resize
@@ -38,35 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Run the check initially and whenever the window is resized
     checkScreenWidth();
     window.addEventListener('resize', checkScreenWidth);
-});
-
-// Image delayed slide animation
-
-  document.addEventListener('DOMContentLoaded', function() {
-    const cardImages = document.querySelectorAll('.card-img');
-    const threshold = 0.2;
-
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top < window.innerHeight &&
-            rect.bottom > 0
-        );
-    }
-
-    function checkVisibility() {
-        cardImages.forEach(function(cardImage) {
-            if (isElementInViewport(cardImage)) {
-                cardImage.classList.add('img-slide');
-            }
-        });
-    }
-
-    window.addEventListener('scroll', checkVisibility);
-    window.addEventListener('resize', checkVisibility);
-
-    // Initial check
-    checkVisibility();
 });
 
 
