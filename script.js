@@ -1,3 +1,5 @@
+// Nav contact button shrink
+
 document.addEventListener('DOMContentLoaded', function() {
     const heroSection = document.querySelector('.hero');
     const navButton = document.querySelector('.btn-nav');
@@ -38,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', checkScreenWidth);
 });
 
-
+// Image delayed slide animation
 
   document.addEventListener('DOMContentLoaded', function() {
     const cardImages = document.querySelectorAll('.card-img');
@@ -68,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// Tooltip copy email
 
 document.addEventListener('DOMContentLoaded', function() {
     const tooltip = document.querySelector('.tooltip');
@@ -85,6 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+
+  // Custom Cursor
 
   document.addEventListener('DOMContentLoaded', function() {
     const customCursor = document.querySelector('.custom-cursor');

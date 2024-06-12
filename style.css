@@ -433,7 +433,7 @@ a {
 .hero {
   color:var(--clr-primary-100);
   font-size: var(--fs-hero);
-  line-height: 1.1;
+  line-height: 1;
   font-weight: var(--fw-bold);
 
   transition: all .5s ease
@@ -498,12 +498,6 @@ a {
   border-radius: 2px;
   font-size: var(--fs-300);
   border: 1px solid var(--clr-primary-700);
-
-/*&.graphic {color:hsla(var(--clr-accent-1), 0.7); border:.5px solid hsla(var(--clr-accent-1), .2)}
-  &.marketing {color:hsla(var(--clr-accent-2), 0.7); border:.5px solid hsla(var(--clr-accent-2), .2)}
-  &.motion{color:hsla(var(--clr-accent-3), 0.7); border:.5px solid hsla(var(--clr-accent-3), .2)}
-  &.product{color:hsla(var(--clr-accent-4), 0.7); border:.5px solid hsla(var(--clr-accent-4), .2)}
-  &.web{color:hsla(var(--clr-accent-5), 0.7); border:.5px solid hsla(var(--clr-accent-5), .2)} */
 }
 
 .chip-img {
@@ -515,10 +509,6 @@ a {
   &.motion{background-color:hsla(var(--clr-accent-3), 1); }
   &.product{background-color:hsla(var(--clr-accent-4), 1); }
   &.web{background-color:hsla(var(--clr-accent-5), 1); } 
-}
-
-.icons {
-  height: 32px;
 }
 
 .card-img-wrapper {
@@ -568,7 +558,21 @@ a {
   transform: translateY(0);
 }
 
+.chat:after {
+  content:'';
+  position: relative;
+  bottom:0;
+  right: 0;
+  padding: 10px 20px;
+  background: #E5E5EA;
+  border-radius: 25px;
+  color: black;
+  opacity: 0;
+}
 
+.chat:hover:after{
+  opacity: 1;
+}
 
 
 .its-a-me {
@@ -601,9 +605,6 @@ a {
   transform: translateY(0px);
   opacity:1;
 }
-
-
-
 
 
 .slide-up {  
@@ -911,7 +912,7 @@ a {
 .jc--sb {justify-content: space-between; }
 .js--se {justify-content: space-evenly; }
 
-.gap-xl {gap:var(--sp-xl)}
+.gap--xl {gap:var(--sp-xl)}
 .gap--l {gap:var(--sp-l)}
 .gap--m {gap:var(--sp-m) }
 .gap--s {gap: var(--sp-s) }
