@@ -121,16 +121,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     });
 
-    var btn = document.querySelectorAll('btn');
-
-    btn.addEventListener('mousemove', function() {
-        customCursor.classList.add('custom-cursor-hover');
-    })
-
-    btn.addEventListener('mouseleave', function() {
-        customCursor.classList.remove('custom-cursor-hover');
-    })
-
     document.addEventListener('touchstart', hideCursor);
     document.addEventListener('touchmove', hideCursor);
     document.addEventListener('touchend', hideCursor);

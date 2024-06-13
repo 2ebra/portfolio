@@ -52,7 +52,8 @@
 
 @media (max-width: 50em) {
   :root {
-    --fs-300: .75rem;
+    --fs-300: .625rem;
+    --fs-400: .875rem;
     --fs-500: 1.25rem;
     --fs-700: 2rem;
     --fs-900: 2.5rem;
@@ -62,8 +63,8 @@
     --sp-xs: .5rem;
     --sp-s: 1.5rem;
     --sp-m: 2.5rem;
-    --sp-l: 6rem;
-    --sp-xl: 8rem;
+    --sp-l: 8rem;
+    --sp-xl: 10rem;
   }
 }
 
@@ -365,10 +366,12 @@ a {
 /*  Classes */
 
 .banner{
-  background-color: var(--clr-primary-700);
+  background-color: var(--clr-primary-800);
   color: var(--clr-primary-100);
 
-  padding: 20px 0; 
+  width: 100%;
+
+  padding: 20px 20px; 
 }
 
 .banner-pixel {
@@ -437,6 +440,13 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+
+
+}
+
+@media (max-width:40em){
+  .hero-imgs-wrapper{display: none;}
+    
 }
 
 .hero-imgs{
@@ -445,15 +455,19 @@ a {
   justify-content: center;
   align-items: center;
   width: 90%;
+
+
 }
 
 .hero-imgs imgs{
+
   border-radius: 15px;
 }
 
 .hero-img {
-
-  transition: transform 1s ease-out;
+  transition-delay: 1s;
+  opacity: 1;
+  transition: transform 1s ease-out, opacity .5s ease-out;
 }
 
 .hidden{opacity:0;}
@@ -618,20 +632,59 @@ a {
   &.padding{padding:0 1rem}
 }
 
-.chat:after {
-  content:'';
+.chat{
   position: relative;
-  bottom:0;
-  right: 0;
+  cursor: pointer;
+
+
+}
+
+.chat-bubble{
+  position: absolute;
+  bottom:50%;
+  right:-10%;
+
   padding: 10px 20px;
   background: #E5E5EA;
   border-radius: 25px;
   color: black;
   opacity: 0;
+  font-size: var(--fs-400);
+
+  transform-origin: bottom left;
+
+  transform: rotate(15deg);
+  transition: all .3s ease-out;
+
+  &:before{
+    content:'';
+    position: absolute;
+    z-index:0;
+    bottom:0;
+    left: -7px;
+    height:20px;
+    width: 20px;
+    background: #E5E5EA;
+    border-bottom-right-radius: 15px;
+  }
+
+  &:after{
+    content:"";
+    position: absolute;
+    z-index:1;
+    bottom: 0;
+    left: -10px;
+    width: 10px;
+    height: 20px;
+    background: var(--body-bg);
+    border-bottom-right-radius: 10px;
+  }
 }
 
-.chat:hover:after{
+
+.chat:hover .chat-bubble{
   opacity: 1;
+  transform: translateY(-50%);
 }
 
 
