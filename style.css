@@ -10,7 +10,8 @@
 
   --clr-primary-900: hsl(0, 0%, 1%);
   --clr-primary-800: hsl(0, 0%, 8%);
-  --clr-primary-700: hsl(0, 0%, 11%);
+  --clr-primary-700: hsl(210, 7%, 11%);
+  --clr-primary-600: hsl(203, 9%, 17%);
   --clr-primary-400: hsl(210, 3%, 62%);
   --clr-primary-100: hsl(0,0%,100%);
 
@@ -26,7 +27,7 @@
   --fw-bold: 700;
   --fw-regular: 400;
 
-  --fs-300: .85rem;
+  --fs-300: .875rem;
   --fs-400: 1rem;
   --fs-500: 1.5rem;
   --fs-700: 4rem;
@@ -49,6 +50,7 @@
 
 @media (max-width: 50em) {
   :root {
+    --fs-300: .75rem;
     --fs-500: 1.25rem;
     --fs-700: 2rem;
     --fs-900: 2.5rem;
@@ -494,6 +496,7 @@ a {
 
 .marquee__content img{
   border-radius: 15px;
+  height: 250px;
 }
 
 @keyframes scroll {
@@ -546,12 +549,11 @@ a {
 }
 
 .kicker {
-  font-size: var(--fs-400);
+  font-size: var(--fs-300);
   text-transform: uppercase;
   letter-spacing: .25rem;
   font-weight:var(--fw-bold);
-
-
+  &.center{text-align: center;}
 }
 
 @media (max-width: 50em) {
@@ -580,10 +582,10 @@ a {
   border: 1px solid var(--clr-primary-700);
 }
 
-.card-img-wrapper {
+.card-img-container {
   display: flex;
   flex-direction: column;
-  flex: 1 0 0px;
+  flex: 2 0 0px;
   gap: var(--sp-s);
 
   width: 100%;
@@ -591,34 +593,45 @@ a {
 
 }
 
-.card-img-row {
+.card-img-wrapper {
   display: flex;
-  flex-flow: row wrap;
   gap: var(--sp-s);
+
+  position: sticky;
+  position: -webkit-sticky;
+  top:0;
 
   width:100%;
   min-width: 280px;
-}
 
-.card-img-col {
-  display: flex;
-  flex-flow: column wrap;
-  gap: var(--sp-s);
+  height: 100%;
+  max-height: 350px;
 
-  width: 100%;
-  min-width: 280px;
+  overflow: hidden;
+
+  &.col{flex-flow: column wrap;};
+  &.row{flex-flow: row wrap;};
 }
 
 .card-img {
   display: flex;
   flex: 1 1 0px;
   height:100%;
-}
+  width: 100%;
+  object-fit: contain;
 
-.card-img img {
+
+  background: var(--clr-primary-700);
+  border: 1px solid var(--clr-primary-600);
+  border-radius:15px;
+
+  inset: 1px;
 
   align-self: center;
+
+  &.padding{padding:0 1rem}
 }
+
 
 
 .footer{
@@ -705,6 +718,10 @@ a {
   transform: translate(-50%, -50%);
 }
 
+.custom-cursor.hidden{
+  visibility: hidden;
+}
+
 .custom-cursor-hover {
   transform: rotate(360deg);
   transition-duration: 1s;
@@ -753,7 +770,7 @@ a {
 
   position:fixed; 
 
-  transition: opacity 1s ease-in-out;
+  transition: opacity .5s ease-in-out;
 
   top:0;
   &.left {left: calc(50% - 560px);}

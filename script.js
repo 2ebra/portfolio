@@ -2,13 +2,10 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     const heroSection = document.querySelector('.hero');
-    const footerSection = document.querySelector('.footer');
     const navButton = document.querySelector('.btn-nav');
-    const vLine = document.querySelector('.line-v');
 
     function handleScroll() {
         const heroBottom = heroSection.getBoundingClientRect().bottom;
-        const footerTop = footerSection.getBoundingClientRect().top;
 
         if (window.innerWidth >= 1080) {
             if (heroBottom < -85) {
@@ -16,18 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 navButton.classList.remove('shrink');
             }
-            if (heroBottom > -85 || footerTop < 800) {
-                vLine.classList.remove('line-appear');
-            }
-            else{ 
-                vLine.classList.add('line-appear');
-            }
         } else {
             navButton.classList.add('shrink');      
-        }
-
-
-        
+        }   
     }
 
     // Check screen width initially and on resize
@@ -51,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     checkScreenWidth();
     window.addEventListener('resize', checkScreenWidth);
 });
+
 
 
 // Tooltip copy email
@@ -77,6 +66,14 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('DOMContentLoaded', function() {
     const customCursor = document.querySelector('.custom-cursor');
 
+    function showCursor() {
+        customCursor.classList.remove('hidden');
+    }
+
+    function hideCursor() {
+        customCursor.classList.add('hidden');
+    }
+
     document.addEventListener('mousemove', function(e) {
         const mouseX = e.clientX;
         const mouseY = e.clientY;
@@ -85,4 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
         customCursor.style.top = `${mouseY}px`;
 
     });
+
+    document.addEventListener('touchstart', hideCursor);
+    document.addEventListener('touchmove', hideCursor);
+    document.addEventListener('touchend', hideCursor);
 });
