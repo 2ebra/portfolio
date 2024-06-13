@@ -408,7 +408,7 @@ a {
 
 @media (max-width:50em) {
   .nav {
-    background: linear-gradient(to top, transparent, var(--clr-primary-800) 50%);
+    background: linear-gradient(to top, transparent, var(--body-bg) 50%);
     padding: 20px;
   }
 }
