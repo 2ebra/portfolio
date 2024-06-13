@@ -61,6 +61,45 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+
+  // Image scroll
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const heroImgs = document.querySelectorAll('.hero-img');
+    const maxOffset = 150; // Maximum translateY offset in pixels
+    const middleOffset = 50; // Middle translateY offset in pixels
+
+    function handleScroll() {
+        const scrollPosition = window.scrollY;
+
+        heroImgs.forEach((img, index) => {
+            let offset = 0;
+
+            img.classList.add('hidden');
+
+            if (index === 0 || index === heroImgs.length - 1) {
+                offset = Math.max(0, maxOffset - scrollPosition / 5); // Adjust the factor to control speed
+            } else if (index === 1 || index === heroImgs.length - 2) {
+                offset = Math.max(0, middleOffset - scrollPosition / 10); // Adjust the factor to control speed
+            }
+            
+            img.style.transform = `translateY(-${offset}px)`;
+            img.classList.remove('hidden');
+            
+        });
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    
+    // Initial call to set the position
+    handleScroll();
+    
+});
+
+
+
+
   // Custom Cursor
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -81,6 +120,16 @@ document.addEventListener('DOMContentLoaded', function() {
         customCursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
 
     });
+
+    var btn = document.querySelectorAll('btn');
+
+    btn.addEventListener('mousemove', function() {
+        customCursor.classList.add('custom-cursor-hover');
+    })
+
+    btn.addEventListener('mouseleave', function() {
+        customCursor.classList.remove('custom-cursor-hover');
+    })
 
     document.addEventListener('touchstart', hideCursor);
     document.addEventListener('touchmove', hideCursor);
