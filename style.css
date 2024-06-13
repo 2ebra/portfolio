@@ -475,6 +475,20 @@ a {
   font-weight: var(--fw-regular);
 }
 
+.hero-imgs{
+  display:flex;
+  gap: var(--sp-s);
+
+  width: 120%;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-imgs imgs{
+  border-radius: 15px;
+}
+
 .marquee {
   --gap: 1rem;
   position: relative;
@@ -708,14 +722,16 @@ a {
 /* ---- Background & Decorative elements ---- */
 
 .custom-cursor {
-  width:20px;
-  height: 20px;
+  width:10px;
+  height: 10px;
   background-color: hsl(var(--clr-accent-1));
   position:fixed;
   pointer-events: none;
   mix-blend-mode: difference;
   z-index: 10000;
   transform: translate(-50%, -50%);
+
+  transition: all .3s ease;
 }
 
 .custom-cursor.hidden{
@@ -723,11 +739,8 @@ a {
 }
 
 .custom-cursor-hover {
-  transform: rotate(360deg);
-  transition-duration: 1s;
-  transition-delay: now;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+
+  border-radius: 50%;
 }
 
 .g-container{ 
@@ -755,32 +768,6 @@ a {
 .blueG{ opacity: 0; animation-fill-mode: forwards;right: 5%; top:35%; mix-blend-mode: lighten; width: var(--circle-size-s); height: var(--circle-size-s); background-image: url(images/BlueG_BG.svg); }
 .greenG{ right: -5%; top:30%; mix-blend-mode: lighten; width: var(--circle-size-s); height: var(--circle-size-s); background-image: url(images/GreenG_BG.svg);  }
 .purpleG{ right: -5%;top:0%; mix-blend-mode: lighten; width: var(--circle-size-l); height: var(--circle-size-l);  background-image: url(images/PurplrG_BG.svg); } */
-
-
-.line{
-  position: relative;
-  z-index:-2;
-}
-
-.line-v{
-  width:1px;
-  height: 100vh;
-  background: linear-gradient(to bottom, hsl(var(--clr-accent-1)) 0, rgba(0,0,0,0));
-  opacity: 0;
-
-  position:fixed; 
-
-  transition: opacity .5s ease-in-out;
-
-  top:0;
-  &.left {left: calc(50% - 560px);}
-  &.right {right: calc(50% - 560px);}
-  &.center {left:50%; right: 50%;}
-}
-
-.line-appear{
-  opacity:1;
-}
 
 @media (max-width: 84em){
   .line-v {

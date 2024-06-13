@@ -78,8 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const mouseX = e.clientX;
         const mouseY = e.clientY;
 
-        customCursor.style.left = `${mouseX}px`;
-        customCursor.style.top = `${mouseY}px`;
+        customCursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
 
     });
 
