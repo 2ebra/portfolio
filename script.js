@@ -78,9 +78,9 @@ document.addEventListener('DOMContentLoaded', function() {
             img.classList.add('hidden');
 
             if (index === 0 || index === heroImgs.length - 1) {
-                offset = Math.max(0, maxOffset - scrollPosition / 5); // Adjust the factor to control speed
+                offset = Math.max(0, maxOffset - scrollPosition / 3); // Adjust the factor to control speed
             } else if (index === 1 || index === heroImgs.length - 2) {
-                offset = Math.max(0, middleOffset - scrollPosition / 10); // Adjust the factor to control speed
+                offset = Math.max(0, middleOffset - scrollPosition / 6); // Adjust the factor to control speed
             }
             
             img.style.transform = `translateY(-${offset}px)`;

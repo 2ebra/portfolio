@@ -584,7 +584,6 @@ a {
 
 .card-img-container {
   display: flex;
-  flex-direction: column;
   flex: 2 0 0px;
   gap: var(--sp-s);
 
@@ -595,42 +594,34 @@ a {
 
 .card-img-wrapper {
   display: flex;
+  flex-flow: row wrap;
   gap: var(--sp-s);
 
-  position: sticky;
-  position: -webkit-sticky;
-  top:0;
+  flex:1 0 0px;
 
-  width:100%;
-  min-width: 280px;
 
-  height: 100%;
-  max-height: 350px;
-
-  overflow: hidden;
-
-  &.col{flex-flow: column wrap;};
-  &.row{flex-flow: row wrap;};
 }
 
 .card-img {
-  display: flex;
-  flex: 1 1 0px;
-  height:100%;
-  width: 100%;
-  object-fit: contain;
-
-
-  background: var(--card-bg);
+  background-color: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius:15px;
+  border-radius: 15px;
 
-  inset: 1px;
+  padding: 20px;
 
-  align-self: center;
+  &.s{flex: 1 0 0px; min-width: 20%;}
+  &.m{flex: 2 0 0px; min-width: 45%;}
+  &.l{flex: 3 0 0px; min-width: 95%;}
 
-  &.padding{padding:0 1rem}
+  &.yellow{background-color: hsl(var(--clr-accent-1));}
+  &.blue{background-color: hsl(var(--clr-accent-2));}
+  &.orange{background-color: hsl(var(--clr-accent-3));}
+  &.green{background-color: hsl(var(--clr-accent-4));}
+  &.purple{background-color: hsl(var(--clr-accent-5));}
 }
+
+
+
 
 .chat{
   position: relative;
@@ -999,6 +990,7 @@ a {
 .flex-col {flex-direction: column; }
 .flex-row {flex-direction: row;}
 .flex-wrap { flex-wrap: wrap; }
+.flex-rreverse {flex-direction: row-reverse;}
 
 .align-center {align-items: center;}
 .align-end {align-items: flex-end;}
