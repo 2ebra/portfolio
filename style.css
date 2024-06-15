@@ -54,7 +54,7 @@
   :root {
     --fs-300: .625rem;
     --fs-400: .875rem;
-    --fs-500: 1.25rem;
+    --fs-500: 1rem;
     --fs-700: 2rem;
     --fs-900: 2.5rem;
 
@@ -63,7 +63,7 @@
     --sp-xs: .5rem;
     --sp-s: 1.5rem;
     --sp-m: 2.5rem;
-    --sp-l: 8rem;
+    --sp-l: 6rem;
     --sp-xl: 10rem;
   }
 }
@@ -176,6 +176,12 @@ header {
   padding: 24px 0;
 }
 
+@media (max-width: 640px){
+  .section-container{
+    overflow: hidden;
+  }
+}
+
 .wrapper {
   max-width: 1080px;
   width: 90%;
@@ -253,6 +259,8 @@ a {
   overflow: hidden;
 
   border:none;
+
+  font-size: var(--fs-400);
 
   font-weight: var(--fw-bold);
   color:var(--clr-primary-800);
@@ -373,7 +381,7 @@ a {
 
 
 
-/*  Classes */
+/*  Everything else */
 
 .nav {
   display: flex;
@@ -402,6 +410,8 @@ a {
     padding: 20px;
   }
 }
+
+#rotatingText{position: absolute; right: 0; bottom: 0; color: hsl(var(--clr-accent-1))}
 
 .hero {
   display: flex;
@@ -612,10 +622,18 @@ a {
 
 .card-img-scroller li img{
   border-radius: 15px;
-  min-height: 250px;
-  min-width: 150px;
+  min-height: 350px;
+  min-width: 200px;
 
 }
+
+@media (max-width: 640px){
+  .card-img-scroller li img{
+    min-height: 150px;
+    min-width: 100px;
+  }
+}
+
 
 @keyframes scroll {
   to{
