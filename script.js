@@ -62,14 +62,24 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-  // Image scroll
+// Hero Images
 
   document.addEventListener('DOMContentLoaded', function() {
     const heroImgs = document.querySelectorAll('.hero-img');
     const maxOffset = 150; // Maximum translateY offset in pixels
     const middleOffset = 50; // Middle translateY offset in pixels
 
-    function handleScroll() {
+    function heroScroll() {
+
+        if (window.innerWidth < 640) {
+            // If the viewport width is less than 640px, reset the transforms and exit the function
+            heroImgs.forEach((img) => {
+                img.style.transform = 'translateY(0)';
+            });
+            return;
+        }
+
+        
         const scrollPosition = window.scrollY;
 
         heroImgs.forEach((img, index) => {
@@ -89,13 +99,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', heroScroll);
 
-    
-    // Initial call to set the position
-    handleScroll();
+    if (window.innerWidth >= 640) {
+        heroScroll();
+    }
     
 });
+
+
+// Img Horizontal Scroller
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    function duplicateImgs() {
+        const scrollers = document.querySelectorAll('.scroller')
+
+        scrollers.forEach((scroller) => {
+
+            const scrollerImgs = scroller.querySelector('.card-img-scroller');
+            const scrollerContent = Array.from(scrollerImgs.children);
+
+            scrollerContent.forEach((item) => {
+                const duplicatedItem = item.cloneNode(true);
+                duplicatedItem.setAttribute("aria-hidden", true);
+                scrollerImgs.appendChild(duplicatedItem);
+            });
+        });
+    }
+    duplicateImgs();
+}); 
+
+
 
 
 

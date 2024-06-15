@@ -152,13 +152,23 @@ header {
 
 /* --- Containers and Wrappers -- */
 
+.view-area{
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position:fixed;
+  top:0;
+  left:0;
+}
 
-.container {
+
+.section-container {
   display:flex;
   flex-direction: column;
   align-items: center;
   flex-wrap: nowrap;
-  gap: 200px;
+  gap: var(--sp-s);
 
   height: min-content;
   width: 100%;
@@ -365,26 +375,6 @@ a {
 
 /*  Classes */
 
-.banner{
-  background-color: var(--clr-primary-800);
-  color: var(--clr-primary-100);
-
-  width: 100%;
-
-  padding: 20px 20px; 
-}
-
-.banner-pixel {
-  width:10px;
-  height:10px;
-
-  &.graphic {background-color:hsla(var(--clr-accent-1), 1);}
-  &.marketing {background-color:hsla(var(--clr-accent-2), 1); }
-  &.motion{background-color:hsla(var(--clr-accent-3), 1); }
-  &.product{background-color:hsla(var(--clr-accent-4), 1); }
-  &.web{background-color:hsla(var(--clr-accent-5), 1); } 
-}
-
 .nav {
   display: flex;
   flex-direction: row;
@@ -441,13 +431,9 @@ a {
   align-items: center;
   justify-content: center;
 
-
 }
 
-@media (max-width:40em){
-  .hero-imgs-wrapper{display: none;}
-    
-}
+
 
 .hero-imgs{
   display:flex;
@@ -455,8 +441,7 @@ a {
   justify-content: center;
   align-items: center;
   width: 90%;
-
-
+  min-width: 640px;
 }
 
 .hero-imgs imgs{
@@ -584,11 +569,14 @@ a {
 
 .card-img-container {
   display: flex;
+  flex-direction: column;
   flex: 2 0 0px;
   gap: var(--sp-s);
 
   width: 100%;
   min-width: 280px;
+
+  position: relative;
 
 }
 
@@ -597,10 +585,44 @@ a {
   flex-flow: row wrap;
   gap: var(--sp-s);
 
-  flex:1 0 0px;
-
+  height: 100%;
+  width:100%;
 
 }
+
+.scroller{
+  overflow: hidden;
+
+}
+
+.card-img-scroller {
+  display: flex;
+  width:100%;
+
+  gap:var(--sp-s);
+
+  animation: scroll linear;
+  animation-timeline: scroll(root);
+
+  &.reverse {
+    animation-direction: reverse;
+  }
+  
+}
+
+.card-img-scroller li img{
+  border-radius: 15px;
+  min-height: 250px;
+  min-width: 150px;
+
+}
+
+@keyframes scroll {
+  to{
+    transform: translate(-50%)
+  }
+}
+
 
 .card-img {
   background-color: var(--card-bg);
@@ -608,6 +630,14 @@ a {
   border-radius: 15px;
 
   padding: 20px;
+
+  min-height: 250px;
+
+  transform-origin: top;
+
+  animation: fade-in linear;
+  animation-timeline: view();
+  animation-range: entry ;
 
   &.s{flex: 1 0 0px; min-width: 20%;}
   &.m{flex: 2 0 0px; min-width: 45%;}
@@ -620,13 +650,31 @@ a {
   &.purple{background-color: hsl(var(--clr-accent-5));}
 }
 
+@keyframes fade-in {
+  from{scale: 1 0; opacity:0 }
+  to{scale:1; opacity: 1}
+}
+
+
+
+.horizontal {
+  flex-direction: row;
+}
+
+.vertical {
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
 
 
 
 .chat{
   position: relative;
-  cursor: pointer;
-
+  cursor: none;
 
 }
 
@@ -634,6 +682,8 @@ a {
   position: absolute;
   bottom:50%;
   right:-10%;
+
+  font-weight: var(--fw-bold);
 
   padding: 10px 20px;
   background: #E5E5EA;
@@ -644,7 +694,7 @@ a {
 
   transform-origin: bottom left;
 
-  transform: rotate(15deg);
+  transform: rotate(5deg);
   transition: all .3s ease-out;
 
   &:before{
@@ -776,14 +826,14 @@ a {
 @media (max-width: 50em) {
   .g-container{top: 35px}
 }
-
-/* .colorg{  position: absolute; background-size: contain; background-repeat: no-repeat; background-position: center;}
-.yellowG{ right: -5%; top:10%; mix-blend-mode: lighten; width: var(--circle-size-s); height: var(--circle-size-s);  background-image:  url(images/YellowG_BG.svg);}
-.orangeG{ right: 0%; top:0%; mix-blend-mode: lighten; width: var(--circle-size-s); height: var(--circle-size-s);  background-image: url(images/OrangeG_BG.svg);  }
-.blueG{ opacity: 0; animation-fill-mode: forwards;right: 5%; top:35%; mix-blend-mode: lighten; width: var(--circle-size-s); height: var(--circle-size-s); background-image: url(images/BlueG_BG.svg); }
-.greenG{ right: -5%; top:30%; mix-blend-mode: lighten; width: var(--circle-size-s); height: var(--circle-size-s); background-image: url(images/GreenG_BG.svg);  }
-.purpleG{ right: -5%;top:0%; mix-blend-mode: lighten; width: var(--circle-size-l); height: var(--circle-size-l);  background-image: url(images/PurplrG_BG.svg); } */
-
+/* 
+.colorg{  position: absolute; background-size: contain; background-repeat: no-repeat; background-position: center; overflow: visible}
+.yellowG{ position: absolute;  background-size: contain; right: -25%;top:0%; mix-blend-mode: lighten; width: var(--circle-size-s); height: var(--circle-size-s);  background-image:  url(images/YellowG_BG.svg);}
+.orangeG{ position: absolute; background-size: contain; right: 30%; top:0%; mix-blend-mode: lighten; width: var(--circle-size-s); height: var(--circle-size-s);  background-image: url(images/OrangeG_BG.svg);  }
+.blueG{ position: absolute; background-size: contain; right: 5%; top:35%; mix-blend-mode: lighten; width: var(--circle-size-s); height: var(--circle-size-s); background-image: url(images/BlueG_BG.svg); }
+.greenG{ position: absolute; background-size: contain; right: 15%;top:0%; mix-blend-mode: lighten; width: var(--circle-size-s); height: var(--circle-size-s); background-image: url(images/GreenG_BG.svg);  }
+.purpleG{ position: absolute; background-size: contain; right: -5%;top:0%; mix-blend-mode: lighten; width: var(--circle-size-l); height: var(--circle-size-l);  background-image: url(images/PurplrG_BG.svg); }
+ */
 @media (max-width: 84em){
   .line-v {
     &.left{ left: calc(50% - calc(100vw * .8) / 2 - 20px );}
