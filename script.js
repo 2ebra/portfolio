@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        
+
         const scrollPosition = window.scrollY;
 
         heroImgs.forEach((img, index) => {
@@ -160,3 +160,5 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('touchmove', hideCursor);
     document.addEventListener('touchend', hideCursor);
 });
+
+

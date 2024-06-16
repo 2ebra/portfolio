@@ -174,6 +174,8 @@ header {
   width: 100%;
 
   padding: 24px 0;
+
+
 }
 
 @media (max-width: 640px){
@@ -602,6 +604,8 @@ a {
 
 .scroller{
   overflow: hidden;
+  
+  min-height: 31vh;
 
 }
 
@@ -610,21 +614,28 @@ a {
   width:100%;
 
   gap:var(--sp-s);
-
-  animation: scroll linear;
-  animation-timeline: scroll(root);
-
-  &.reverse {
-    animation-direction: reverse;
-  }
   
 }
 
 .card-img-scroller li img{
   border-radius: 15px;
-  min-height: 350px;
-  min-width: 200px;
+  height: auto;
+  width: 14vw;
+  max-width: 164px;
 
+}
+
+.right{
+  position:absolute;
+  left: 0;
+  right: auto;
+
+}
+
+.left{
+  position:absolute;
+  right:  auto;
+  left:0;
 }
 
 @media (max-width: 640px){
@@ -826,6 +837,8 @@ a {
   border-radius: 50%;
 }
 
+
+
 .g-container{ 
   position: absolute; 
   width: 100%; 
@@ -839,6 +852,18 @@ a {
   top:0px; 
   right:-10%;
   min-width: 450px;
+}
+
+.space-bg {
+  background-image: url(images/stars-bg.png);
+  background-position: 50%;
+  background-size: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
 }
 
 @media (max-width: 50em) {
@@ -1074,6 +1099,7 @@ a {
 .gap--xs {gap: var(--sp-xs)}
 
 .of-visible{overflow: visible;}
+.of-hidden {overflow: hidden;}
 
 .delay-1{transition-delay: 1s;}
 
