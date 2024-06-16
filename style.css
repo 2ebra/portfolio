@@ -36,7 +36,7 @@
   --fs-900: 6rem;
 
   --fs-body: var(--fs-400);
-  --fs-hero: var(--fs-700);
+  --fs-hero: var(--fs-900);
   --fs-headers: var(--fs-700);
 
   --sp-xs: .5rem;
@@ -261,6 +261,7 @@ a {
   overflow: hidden;
 
   border:none;
+  border-radius: 5px;
 
   font-size: var(--fs-400);
 
@@ -413,7 +414,7 @@ a {
   }
 }
 
-#rotatingText{position: absolute; right: 0; bottom: 0; color: hsl(var(--clr-accent-1))}
+
 
 .hero {
   display: flex;
@@ -658,9 +659,9 @@ a {
   border: 1px solid var(--card-border);
   border-radius: 15px;
 
-  padding: 20px;
+  overflow: hidden;
 
-  min-height: 250px;
+  min-height: 150px;
 
   transform-origin: top;
 
@@ -680,8 +681,8 @@ a {
 }
 
 @keyframes fade-in {
-  from{scale: 1 0; opacity:0 }
-  to{scale:1; opacity: 1}
+  from{ transform: translateY(20%); opacity:0 }
+  to{ transform: translateY(0); opacity: 1}
 }
 
 
@@ -918,8 +919,8 @@ a {
   display: inline-block;
   position: absolute;
 
-  top: -50%;
-  right: 40%;
+  top: -30%;
+  right: 37%;
 
   width: 35px;
   height: 35px;
@@ -940,8 +941,8 @@ a {
   display: inline-block;
   position: absolute;
 
-  top: -12%;
-  right: 24%;
+  top: -6%;
+  right: 26.5%;
 
   width: 100px;
   height: 100px;
@@ -975,7 +976,7 @@ a {
 
   display: inline-block;
   position: absolute;
-  right: -10%;
+  right: -2%;
   bottom: 25%;
 
   background-color: hsl(var(--clr-accent-3));
