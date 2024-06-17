@@ -107,6 +107,7 @@ body {
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
+  
 }
 /*
   6. Remove built-in form typography styles
@@ -452,12 +453,12 @@ a {
   display:flex;
   gap: var(--sp-s);
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 90%;
   min-width: 640px;
 }
 
-.hero-imgs imgs{
+.hero-imgs img{
 
   border-radius: 15px;
 }
@@ -612,17 +613,26 @@ a {
 
 .card-img-scroller {
   display: flex;
+  
+  align-items: top;
   width:100%;
 
   gap:var(--sp-s);
   
 }
 
+.card-img-scroller li {
+  border-radius: 15px;
+  height: 31vh;
+  align-items: center;
+}
+
 .card-img-scroller li img{
   border-radius: 15px;
-  height: auto;
-  width: 14vw;
-  max-width: 164px;
+  height:100%;
+
+  min-width: 100%;
+  max-width: none;
 
 }
 
@@ -649,7 +659,7 @@ a {
 
 @keyframes scroll {
   to{
-    transform: translate(-50%)
+    transform: translate(-75%)
   }
 }
 
@@ -677,6 +687,8 @@ a {
   &.s{flex: 1 0 0px; min-width: 20%;}
   &.m{flex: 2 0 0px; min-width: 45%;}
   &.l{flex: 3 0 0px; min-width: 95%;}
+
+
 
   &.yellow{background-color: hsl(var(--clr-accent-1));}
   &.blue{background-color: hsl(var(--clr-accent-2));}
